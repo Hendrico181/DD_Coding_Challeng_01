@@ -11,16 +11,15 @@ def get_client_ip(request):
         ip = x_forwarded_for.split(',')[0]
     else:
         ip = request.META.get('REMOTE_ADDR')
-        # ip = urllib.request.urlopen('https://ident.me/').read().decode('utf8')
+        # ip = '105.225.88.204'
     return ip
 
 
 def index(request):
-    g = GeoIP2
+    g = GeoIP2()
     ip = get_client_ip(request)
-    print("AAAAAAAAAAAAAAAAAA",ip)
     # city = g.city(f'{ip}')
-    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=c17f80b8977a3ca05b570bd7a5b8679c'
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=c17f80b8977a3ca05b570bd7a5b8679c'
     location = g.city(ip)
     city = location['city']
 
