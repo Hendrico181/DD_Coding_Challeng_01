@@ -19,7 +19,7 @@ def location(request):
     g = GeoIP2()
     ip = get_client_ip(request)
     test = g.city(f'{ip}')
-    return HttpResponse(test)
+    return render(request)
 
 # def weather(request):
 #     return HttpResponse(HTML_STRING)
