@@ -21,7 +21,7 @@ def index(request):
     print("AAAAAAAAAAAAAAAAAA",ip)
     # city = g.city(f'{ip}')
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=c17f80b8977a3ca05b570bd7a5b8679c'
-    location = g.city(f'{ip}')
+    location = g.city(ip)
     city = location['city']
 
     r = requests.get(url.format(city)).json()
