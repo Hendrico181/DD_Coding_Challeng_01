@@ -10,7 +10,8 @@ def get_client_ip(request):
     if x_forwarded_for:
         ip = x_forwarded_for.split(',')[0]
     else:
-        ip = request.META.get('REMOTE_ADDR')
+        # ip = request.META.get('REMOTE_ADDR')
+        ip = '105.225.88.204' #temp. remove this before sending to elandre
     return ip
 
 
@@ -21,7 +22,6 @@ def index(request):
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=c17f80b8977a3ca05b570bd7a5b8679c'
     location = g.city(ip)
     city = location['city']
-    print(requests.get(url.format(city)).text)
 
     r = requests.get(url.format(city)).json()
 
@@ -30,6 +30,8 @@ def index(request):
         'temperature': r['main']['temp'],
         'description': r['weather'][0]['description'],
         'icon': r['weather'][0]['icon'],
+        "humidity": r['main']["humidity"],
+        'wind': r['wind']['speed'],
     }
 
     context = {'city_weather': city_weather}

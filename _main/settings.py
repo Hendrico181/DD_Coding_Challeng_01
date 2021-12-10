@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'weather_locator',
+    'notes',
 ]
 
 MIDDLEWARE = [

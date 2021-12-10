@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from weather_locator.views import index
-
+from notes.views import *
 
 
 urlpatterns = [
     path('', index),
+    path('notes/', notes_home_view),
+    path('notes/create', note_create_view),
+    path('notes/<int:id>/', note_detail_view),
+    path('notes/<int:id>/edit', note_edit_view),
+    path('notes/<int:id>/delete', delete_view),
     path('admin/', admin.site.urls),
-
 ]

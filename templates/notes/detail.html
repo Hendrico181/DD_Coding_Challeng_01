@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<section>
+    <div>
+        <div class="container">
+            <a href='delete' class="delete"></a>Delete Note
+            <section class="hero is-info">
+                <div class="hero-body">
+                    <p class="title">
+                        {{ object.title }}
+                    </p>
+                    <p class="subtitle">
+                        {{ object.content }}
+                    </p>
+                </div>
+                <a href="edit" class="button is-link">Edit</a>
+            </section>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
