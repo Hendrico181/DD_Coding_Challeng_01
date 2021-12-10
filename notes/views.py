@@ -25,12 +25,13 @@ def note_create_view(request):
 
 
 def note_edit_view(request, id):
+    note = Note.objects.get(id=id)
     if request.method == 'POST':
-        note = Note.objects.get(id=id)
         note.title = request.POST.get('title')
         note.content = request.POST.get('content')
         note.save()
     context = {
+        'note': note,
         'button': "Edit"
     }
     return render(request, 'notes/create.html', context=context)

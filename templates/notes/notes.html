@@ -2,23 +2,21 @@
 
 {% block content %}
 
-
-<article class="panel is-primary">
-    <p class="panel-heading">
-        Notes
-    </p>
-    {% for note in notes %}
-    <a href='/notes/{{ note.id }}/' class="panel-block is-active">
-    <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
-    </span>
-        {{ note.title }} - {{ note.content }}
-    </a>
-    {% endfor %}
-    <div class="buttons">
-        <a class="button is-link" href="create">Add note</a>
-    </div>
-</article>
-
+    <article style='margin:1%;' class="panel is-primary">
+        <p class="panel-heading">
+            Notes
+        </p>
+        {% for note in notes %}
+        <a href='/notes/{{ note.id }}/' class="panel-block is-active">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+            {{ note.title }} - {{ note.content }}
+        </a>
+        {% endfor %}
+        <div class="buttons">
+            <a class="button is-link" href="create">Add note</a>
+        </div>
+    </article>
 
 {% endblock %}
